@@ -1,0 +1,35 @@
+#!/bin/sh -eu
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+export DPP_INCLUDE=./config
+. "$DPP_INCLUDE"
+
+echo "*$ext_r$nl*$ext_w$nl!$template$nl$rss$rss_ext_w" > "$ignore"
+
+for f in $glob"$ext_r"; do
+  o=${f%%"$ext_r"}
+  r < "$f"
+  x dpp "$f" "$T" "$author" < "$template" > "$o$ext_w"
+  echo "!$f"
+  set -f -- "$f" "$@"
+done >> "$ignore"
+
+tag "$@" | while read -r W F; do
+  echo "${tagline:-"$W"}$nl${tagline:+"$nl$F$nl"}" > "${W#\#}$ext_r"
+  W=${W#\#} F=${F%%#*} tagline=
+
+  for f in ${F:-"$@"}; do
+    r < "$f"
+    C=$C\# C=${C%"#${W#index}"*}${C##*"#${W#index}"}
+    echo "<span class=g><span>$d $m $y <a href=/${f%%"$ext_r"}>$T</a></span>
+<span>${C%#}</span></span>"
+  done >> "$W$ext_r"
+
+  echo >> "$W$ext_r"
+  x dpp "$W$ext_r" "#$W" < "$template" > "$W$ext_w"
+done
+
+dpp < "$rss$rss_ext_r" > "$rss$rss_ext_w"
+

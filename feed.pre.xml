@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="${url:?}/feed.xml" rel="self" type="application/rss+xml"/>
+<title>${name:?}</title>
+<description>${description:?}</description>
+<link>${url:?}</link>
+<managingEditor>${email:?} (${author:?})</managingEditor>
+<copyright>${author:?}</copyright>
+<language>en-us</language>
+!!
+for f in $glob"$ext_r"; do
+  r < "$f"
+  cat <<EOF
+<item>
+<title>${T:?}</title>
+<author>${email:?} (${author:?})</author>
+<link>${url:?}/${f%"$ext_r"}</link>
+<guid>${url:?}/${f%"$ext_r"}</guid>
+<pubDate>${D:?} ${d:?} ${m:?} ${y:?} ${t:?} ${z:?}</pubDate>
+$(set -f -- $C; for f do echo "<category>${f#\#}</category>"; done)
+</item>
+EOF
+done
+!!
+</channel>
+</rss>

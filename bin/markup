@@ -1,0 +1,11 @@
+#!/bin/sed -f
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+s@\(^\| \)\(https\{0,1\}://[^[:space:]]*[[:alnum:]/]\)@\1<a href="\2">\2</a>@g
+s@\(^\| \|>\)#\([[:alnum:]]\+\)@\1#<a href="/\2">\2</a>@g
+s@^\[\([^]]\+\)\]@[<span id="\1">\1</span>]@g
+s@\[\([^]<]\+\)\]@[<a href="#\1">\1</a>]@g
+/./{H;d;};x;/./{s/^\n//;s/.*/<p>&<\/p>/;}
+

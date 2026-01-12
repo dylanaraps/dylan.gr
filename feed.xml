@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="https://dylan.gr/feed.xml" rel="self" type="application/rss+xml"/>
+<title>Δ</title>
+<description>ex program, en farm</description>
+<link>https://dylan.gr</link>
+<managingEditor>iam@dylan.gr (Dylan Araps)</managingEditor>
+<copyright>Dylan Araps</copyright>
+<language>en-us</language>
+<item>
+<title>WELCOME TO MY BLOG</title>
+<author>iam@dylan.gr (Dylan Araps)</author>
+<link>https://dylan.gr/1768216263</link>
+<guid>https://dylan.gr/1768216263</guid>
+<pubDate>Mon, 12 Jan 2026 13:11:03 +0200</pubDate>
+<category>meta</category>
+</item>
+</channel>
+</rss>

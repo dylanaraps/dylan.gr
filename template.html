@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang=en>
+<head>
+<title>${2:?missing title}</title>
+<meta charset=utf-8>
+<meta name=description content="$description">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=icon type="image/${favicon_type:?}"
+href="data:image/${favicon_type:?};base64,$(
+base64 < "${favicon:?}" | tr -d '\n')">
+<style>$(dpp < "${style:?}")</style>
+</head>
+<body>
+<nav>
+<p></p>
+<p class=g>
+<a href=/>${name:?}</a> <span class=r>
+<a href="mailto:${email:?}">${email:?}</a>
+ [<a href=/${rss:?}${rss_ext_w:?}>RSS</a>]</span>
+</p>
+</nav>
+<article>
+$(markup < "${1:?missing content}")
+${3:+"<br><span class=r>—<i>$3</i></span>"}
+</article>
+<footer>
+<p>
+<p>
+<p>Copyright ${license_year:?} / ${author:?} / ${license:?}</p>
+<p>
+<p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+#!/bin/sh -euf
+#
+# Copyright 2026 - Dylan Araps - All Rights Reserved
+#
+
+. ./config
+
+{
+  git checkout master
+  git push origin master
+
+  git checkout clean
+  git reset --hard master
+  git reset "$(git commit-tree HEAD^\{tree\} -m snapshot)"
+  git push -f clean HEAD:master
+
+  git checkout pub
+  git reset --hard master
+  make
+  rm -f "$ignore"
+  git add .
+  git reset --hard "$(git commit-tree "$(git write-tree)" -m snapshot)"
+  git push -f clean HEAD:pub
+
+} < /dev/null || :
+
+git checkout -f master
+

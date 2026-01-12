@@ -1,0 +1,11 @@
+#!/bin/sh -efu
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+. ./config
+t=$(LC_ALL=C date '+%s@%a, %d %b %Y %H:%M:%S %z')
+f=${t%%@*}$ext_r
+echo "#meta$nl$nl${t#*@}$nl${nl}TITLE$nl$nl...$nl" > "$f"
+"${EDITOR:-vi}" "$f"
+

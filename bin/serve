@@ -1,0 +1,8 @@
+#!/bin/sh -efu
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+. ./config
+x $server
+

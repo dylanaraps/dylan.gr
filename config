@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+name=Δ
+author="Dylan Araps"
+description="ex program, en farm"
+url=https://dylan.gr
+email=iam@dylan.gr
+tagline="ex <a href='https://arstechnica.com/gadgets/2024/09/neofetch-is-over-but-many-screenshot-system-info-tools-stand-ready/'>program</a>, en <a href='https://wild.gr'>farm</a>"
+style=style.css
+template=template.html
+ignore=.gitignore
+ext_r=.txt
+ext_w=.html
+glob=[0-9]\*
+rss=feed
+rss_ext_r=.pre.xml
+rss_ext_w=.xml
+favicon=favicon.gif
+favicon_type=gif
+server="httpd -fp 8001"
+font_size=16px
+font=monospace
+license="All Rights Reserved"
+license_year=2025
+width=55
+nl='
+'
+
+export PATH="$PWD/bin:$PATH"
+
+x() { echo "$@" >&2; "$@"; }
+r() { read -r C; read -r _; read -r D d m y t z; read -r _; read -r T; }
+

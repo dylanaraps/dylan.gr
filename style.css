@@ -1,0 +1,9 @@
+html,body,img{font:${font_size:?} ${font:?},monospace;height:100%;margin:0;width:100%}
+body{display:flex;flex-direction:column;overflow-y:scroll}
+p{margin:${font_size:?} 1ch 0;max-width:calc(${width:?}ch + 2ch)}
+article{flex:1}
+nav,article,footer{margin:0 auto;max-width:calc(${width:?}ch + 2ch);width:100%}
+.g{display:flex}
+.g>*:first-child{margin-right:1ch}
+.g>*:nth-child(2){margin-left:auto}
+.r{float:right}
