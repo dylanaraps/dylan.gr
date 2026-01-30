@@ -1,0 +1,17 @@
+#!/bin/sh -euf
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+. ./config
+
+sed "
+s@\(^\| \|>\)#\([[:alnum:]]\+\)@\1#<a href=\"/\2\">\2</a>@g
+s@^- \[\([^]]\+\)\]@\1. <span id=\"\1\"></span>@g
+s@\[\([0-9]\+\)\]@<a class=n href=\"#\1\">\1</a>@g
+s@^-SIGNATURE@<p class=r id=q><i>—$author</i></p>@
+" |
+
+$markdown
+
+

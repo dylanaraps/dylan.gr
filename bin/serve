@@ -1,0 +1,8 @@
+#!/bin/sh -euf
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+. ./config
+x exec $server
+

@@ -1,0 +1,184 @@
+:root {
+  --width: calc(($width * $font_size / 2) + 2rem);
+  --color_code: #f6f8fa;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font: $font_size $font,serif;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+p { 
+  margin: $font_size 0;
+  text-wrap: balance;
+}
+
+h2,
+h3 {
+  margin-top: calc($font_size * 3);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+article {
+  flex: 1;
+  padding: 0 0 4rem;
+}
+
+nav,
+article > *:not(pre):not(figure),
+footer {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: var(--width);
+  width: 100%;
+}
+
+code {
+  font-size: 0.95em;
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  background: var(--color_code);
+  white-space: nowrap;
+}
+
+pre {
+  max-width: 80ch;
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 6px;
+  background: var(--color_code);
+  line-height: 1.45;
+}
+
+pre > code {
+  padding: 0;
+  white-space: pre;
+}
+
+figure {
+  display: block;
+  margin: 2rem auto;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  margin: 0 0 .5rem 0;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+figcaption {
+  color: #000;
+  width: 100%;
+  font-style: italic;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+li {
+  list-style-position: inside;
+}
+
+q {
+  font-style: italic;
+}
+
+blockquote {
+  border-left: 10px solid var(--color_code);
+  padding: 1rem;
+}
+
+blockquote span {
+  display: block;
+  margin: 1rem 0;
+}
+
+.g {
+  display: flex;
+}
+
+.g > *:first-child { 
+  margin-right: 1ch;
+  white-space: nowrap;
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.g > *:nth-child(2) {
+  margin-left: auto;
+}
+
+@media (max-width: 500px) {
+  .g > *:first-child {
+    max-width: 100%;
+  }
+
+  article .g > *:nth-child(2) {
+    display: none;
+  }
+}
+
+.r {
+  text-align: right;
+}
+
+.c {
+  text-align: center;
+}
+
+.n {
+  font-size: 0.75em;
+  font-weight: bold;
+  vertical-align: super;
+  line-height: 0;
+}
+
+#q {
+  height: 4rem;
+}
+

@@ -1,0 +1,20 @@
+#!/bin/sh -eu
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+. ./config
+
+while read -r f; do case $f in
+  [!\!]*) set -- "$@" $f
+esac done < "$ignore"
+
+for f do case $f in
+  "$template"|$glob"$ext_r") ;;
+  *) set -- "$@" "$f"
+esac; shift; done
+
+case $config_loaded in y) 
+  x rm -f "$@"
+esac
+
