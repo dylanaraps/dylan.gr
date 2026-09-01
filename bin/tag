@@ -1,0 +1,23 @@
+#!/bin/awk -f
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+FNR == 1 {
+  for (i = 1; i <= NF; i++)
+    if (!w[$i]++)
+      f[$i] = FILENAME
+
+    else if (!s[$i,FILENAME]++)
+      f[$i] = f[$i]" "FILENAME
+
+  nextfile
+
+} END {
+  printf "#index "
+  for (j in f) printf j" "
+  printf "\n"
+  for (i in f) print i,f[i]
+}
+
+

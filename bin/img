@@ -1,0 +1,16 @@
+#!/bin/sh -eu
+#
+# Copyright 2025 - Dylan Araps - All Rights Reserved
+#
+
+. ./config
+
+cat <<EOF
+<figure>
+${src:+"<a href=\"$src\">"}
+<img decoding=async loading=lazy src="$1" alt="$2">
+${cap:+"<figcaption>$2</figcaption>"}
+${src:+"</a>"}
+</figure>
+EOF
+
